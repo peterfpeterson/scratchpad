@@ -3,7 +3,7 @@ vanfile = '/SNS/NOM/IPTS-7065/0/9335/NeXus/NOM_9335_event.nxs'
 bakfile = '/SNS/NOM/IPTS-7065/0/9333/NeXus/NOM_9333_event.nxs'
 
 focus_args={'CalFileName':calfile, #'CropWavelengthMin':0.1,'RemovePromptPulseWidth':50,
-'FilterBadPulses':False,'Params':'-0.0004','CompressTolerance':0.,
+'Params':'-0.0004','ResampleX':-3000,#'CompressTolerance':0.,
 'PrimaryFlightPath':19.5,'SpectrumIDs':'1,2,3,4,5,6','L2':'2,2,2,2,2,2','Polar':'15,31,67,122,154,7','Azimuthal':'0,0,0,0,0,0'}
 
 Load(Filename=bakfile,OutputWorkspace='NOM_9333',Precount=True)
