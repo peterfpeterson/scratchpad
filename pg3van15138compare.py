@@ -1,0 +1,18 @@
+Load(Filename=r'/SNS/PG3/IPTS-2767/0/15138/NeXus/PG3_15138_event.nxs',OutputWorkspace='PG3_15138')
+FilterBadPulses(InputWorkspace='PG3_15138',OutputWorkspace='PG3_15138')
+AlignAndFocusPowder(InputWorkspace='PG3_15138',OutputWorkspace='PG3_15138',
+                    CalFileName='/SNS/PG3/2013_2_11A_CAL/PG3_PAC_d15024_2013_08_22.cal',
+                    Params=-0.0004,DMin=2.,DMax=15.35,
+                    TMin=66666.67,TMax=83333.67,PreserveEvents=False,RemovePromptPulseWidth=50.,
+                    PrimaryFlightPath=60.,SpectrumIDs=1,L2=3.18,Polar=90.,Azimuthal=0.)
+NormaliseByCurrent(InputWorkspace='PG3_15138',OutputWorkspace='PG3_15138')
+ConvertUnits(InputWorkspace='PG3_15138',OutputWorkspace='PG3_15138',Target='dSpacing')
+StripVanadiumPeaks(InputWorkspace='PG3_15138',OutputWorkspace='PG3_15138',
+                   BackgroundType='Quadratic',PeakPositionTolerance=0.05)
+ConvertUnits(InputWorkspace='PG3_15138',OutputWorkspace='PG3_15138',Target='TOF')
+FFTSmooth(InputWorkspace='PG3_15138',OutputWorkspace='PG3_15138',
+          Filter='Butterworth',Params="20,2",IgnoreXBins=True,AllSpectra=True)
+SetSampleMaterial(InputWorkspace='PG3_15138',ChemicalFormula='V',SampleNumberDensity=0.0721)
+MultipleScatteringCylinderAbsorption(InputWorkspace='PG3_15138',OutputWorkspace='PG3_15138')
+SetUncertainties(InputWorkspace='PG3_15138',OutputWorkspace='PG3_15138')
+ConvertUnits(InputWorkspace='PG3_15138',OutputWorkspace='PG3_15138',Target='dSpacing')
